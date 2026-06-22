@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ThePride — Detailing automotriz premium. Transformamos tu vehículo para que luzca 0km. Corrección de pintura, cerámica y más." />
+  <title>ThePride | Detailing Premium — Como Nuevo</title>
+
+  <!-- Google Fonts: impacto + legibilidad -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pride: {
+              black: '#0b0b0b',
+              dark: '#141414',
+              gray: '#1a1a1a',
+              muted: '#888888',
+              red: '#e50914',
+              'red-hover': '#ff1a26',
+            },
+          },
+          fontFamily: {
+            display: ['"Bebas Neue"', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          backgroundImage: {
+            'hero-gradient': 'linear-gradient(135deg, rgba(11,11,11,0.92) 0%, rgba(11,11,11,0.75) 50%, rgba(229,9,20,0.15) 100%)',
+            'section-gradient': 'linear-gradient(180deg, #0b0b0b 0%, #141414 50%, #0b0b0b 100%)',
+            'red-glow': 'radial-gradient(ellipse at center, rgba(229,9,20,0.25) 0%, transparent 70%)',
+          },
+          boxShadow: {
+            'red-glow': '0 0 40px rgba(229,9,20,0.4)',
+            'red-glow-sm': '0 0 20px rgba(229,9,20,0.3)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Efectos premium adicionales */
+    .text-stroke {
+      -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+    }
+    .glossy-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
+      backdrop-filter: blur(12px);
+    }
+    .red-line::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #e50914;
+      margin-top: 1rem;
+    }
+    .hero-bg {
+      background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .nav-scrolled {
+      background: rgba(11, 11, 11, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(229, 9, 20, 0.2);
+    }
+    /* Animación sutil del hero */
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 30px rgba(229, 9, 20, 0.3); }
+      50% { box-shadow: 0 0 50px rgba(229, 9, 20, 0.5); }
+    }
+    .cta-pulse {
+      animation: pulse-glow 2.5s ease-in-out infinite;
+    }
+    /* Menú mobile */
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+
+<body class="bg-pride-black text-white font-body antialiased overflow-x-hidden">
+
+  <!-- ============================================================
+       SECTION 1: HEADER / NAVEGACIÓN
+       ============================================================ -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="#inicio" class="group flex items-center gap-2">
+          <span class="font-display text-3xl sm:text-4xl tracking-widest text-white group-hover:text-pride-red transition-colors duration-300">
+            THE<span class="text-pride-red group-hover:text-white transition-colors duration-300">PRIDE</span>
+          </span>
+        </a>
+
+        <!-- Nav Desktop -->
+        <ul class="hidden md:flex items-center gap-8">
+          <li><a href="#inicio" class="text-sm font-semibold uppercase tracking-wider text-white/80 hover:text-pride-red transition-colors">Inicio</a></li>
+          <li><a href="#nosotros" class="text-sm font-semibold uppercase tracking-wider text-white/80 hover:text-pride-red transition-colors">Nosotros</a></li>
+          <li><a href="#servicios" class="text-sm font-semibold uppercase tracking-wider text-white/80 hover:text-pride-red transition-colors">Servicios</a></li>
+          <li><a href="#testimonios" class="text-sm font-semibold uppercase tracking-wider text-white/80 hover:text-pride-red transition-colors">Testimonios</a></li>
+          <li>
+            <a href="#contacto" class="inline-block px-5 py-2.5 bg-pride-red text-white text-sm font-bold uppercase tracking-wider rounded-sm hover:bg-pride-red-hover hover:shadow-red-glow-sm transition-all duration-300">
+              Cotizar
+            </a>
+          </li>
+        </ul>
+
+        <!-- Hamburger Mobile -->
+        <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Abrir menú" aria-expanded="false">
+          <span class="block w-6 h-0.5 bg-white transition-all duration-300" id="bar1"></span>
+          <span class="block w-6 h-0.5 bg-pride-red transition-all duration-300" id="bar2"></span>
+          <span class="block w-6 h-0.5 bg-white transition-all duration-300" id="bar3"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-20 right-0 w-72 h-[calc(100vh-5rem)] bg-pride-dark border-l border-pride-red/20 transform translate-x-full transition-transform duration-300 md:hidden z-40">
+      <ul class="flex flex-col gap-1 p-6">
+        <li><a href="#inicio" class="mobile-link block py-3 px-4 text-lg font-semibold uppercase tracking-wider hover:text-pride-red hover:bg-white/5 rounded transition-colors">Inicio</a></li>
+        <li><a href="#nosotros" class="mobile-link block py-3 px-4 text-lg font-semibold uppercase tracking-wider hover:text-pride-red hover:bg-white/5 rounded transition-colors">Nosotros</a></li>
+        <li><a href="#servicios" class="mobile-link block py-3 px-4 text-lg font-semibold uppercase tracking-wider hover:text-pride-red hover:bg-white/5 rounded transition-colors">Servicios</a></li>
+        <li><a href="#testimonios" class="mobile-link block py-3 px-4 text-lg font-semibold uppercase tracking-wider hover:text-pride-red hover:bg-white/5 rounded transition-colors">Testimonios</a></li>
+        <li class="pt-4">
+          <a href="#contacto" class="mobile-link block text-center py-3 px-4 bg-pride-red text-white font-bold uppercase tracking-wider rounded-sm hover:bg-pride-red-hover transition-colors">Cotizar Ahora</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         SECTION 2: HERO
+         ============================================================ -->
+    <section id="inicio" class="relative min-h-screen flex items-center hero-bg">
+      <!-- Overlay oscuro + gradiente rojo -->
+      <div class="absolute inset-0 bg-hero-gradient"></div>
+      <div class="absolute inset-0 bg-red-glow opacity-60"></div>
+
+      <!-- Líneas decorativas estilo racing -->
+      <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-pride-red to-transparent opacity-80"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+        <div class="max-w-4xl">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-pride-red/40 rounded-full mb-8">
+            <span class="w-2 h-2 bg-pride-red rounded-full animate-pulse"></span>
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-pride-red">Detailing de Élite</span>
+          </div>
+
+          <!-- Título principal -->
+          <h1 class="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-none tracking-wide text-white italic">
+            TU AUTO<br />
+            <span class="text-pride-red text-stroke">COMO 0KM</span>
+          </h1>
+
+          <!-- Subtítulo -->
+          <p class="mt-6 text-lg sm:text-xl md:text-2xl text-white/75 max-w-2xl leading-relaxed font-light">
+            No es solo un lavado. Es una <strong class="text-white font-semibold">transformación total</strong>.
+            Corrección de pintura, protección cerámica y obsesión por cada detalle.
+            Porque tu máquina merece lucir como el primer día que la viste en el concesionario.
+          </p>
+
+          <!-- CTAs -->
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="#contacto" class="cta-pulse inline-flex items-center justify-center gap-3 px-8 py-4 bg-pride-red text-white font-bold uppercase tracking-widest text-sm rounded-sm hover:bg-pride-red-hover transition-all duration-300 group">
+              <span>Reservar Turno</span>
+              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+            <a href="#servicios" class="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-sm rounded-sm hover:border-pride-red hover:text-pride-red transition-all duration-300">
+              Ver Servicios
+            </a>
+          </div>
+
+          <!-- Stats rápidos -->
+          <div class="mt-16 grid grid-cols-3 gap-6 max-w-lg">
+            <div>
+              <p class="font-display text-4xl text-pride-red">500+</p>
+              <p class="text-xs uppercase tracking-wider text-white/50 mt-1">Autos Transformados</p>
+            </div>
+            <div>
+              <p class="font-display text-4xl text-pride-red">12</p>
+              <p class="text-xs uppercase tracking-wider text-white/50 mt-1">Años de Experiencia</p>
+            </div>
+            <div>
+              <p class="font-display text-4xl text-pride-red">100%</p>
+              <p class="text-xs uppercase tracking-wider text-white/50 mt-1">Satisfacción</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+        <span class="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+        <div class="w-px h-10 bg-gradient-to-b from-pride-red to-transparent"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3: SOBRE NOSOTROS
+         ============================================================ -->
+    <section id="nosotros" class="relative py-24 sm:py-32 bg-section-gradient">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          <!-- Imagen -->
+          <div class="relative group">
+            <div class="absolute -inset-4 bg-pride-red/10 rounded-lg blur-2xl group-hover:bg-pride-red/20 transition-all duration-500"></div>
+            <div class="relative overflow-hidden rounded-lg border border-white/10">
+              <img
+                src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=800&q=80"
+                alt="Detallista profesional puliendo un auto deportivo"
+                class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-pride-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-6 left-6">
+                <p class="font-display text-2xl text-white italic">Precisión.<br />Pasión.<br />Perfección.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Texto -->
+          <div>
+            <span class="text-pride-red text-sm font-bold uppercase tracking-[0.25em]">Sobre Nosotros</span>
+            <h2 class="red-line font-display text-5xl sm:text-6xl tracking-wide mt-2 italic">
+              OBSESIÓN POR<br />LA PERFECCIÓN
+            </h2>
+            <p class="mt-8 text-white/70 text-base sm:text-lg leading-relaxed">
+              En <strong class="text-white">ThePride</strong> nacimos de una sola convicción: ningún auto debería perder
+              su brillo original. Somos un equipo de apasionados del motor que combina técnicas de vanguardia
+              con la paciencia de un artesano. Cada micro-rayón, cada mancha de agua, cada imperfección en el
+              interior — la tratamos como un enemigo que hay que eliminar sin piedad.
+            </p>
+            <p class="mt-4 text-white/70 text-base sm:text-lg leading-relaxed">
+              Trabajamos con productos premium importados, herramientas de grado profesional y un protocolo
+              riguroso que garantiza resultados de showroom. No hacemos promesas vacías: entregamos autos que
+              hacen girar cabezas en la calle.
+            </p>
+
+            <!-- Valores -->
+            <ul class="mt-8 space-y-4">
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-pride-red/20 border border-pride-red/40 rounded-sm">
+                  <svg class="w-4 h-4 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-white">Técnicas Certificadas</p>
+                  <p class="text-sm text-white/50">Formación continua en las últimas metodologías del detailing mundial.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-pride-red/20 border border-pride-red/40 rounded-sm">
+                  <svg class="w-4 h-4 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-white">Productos de Élite</p>
+                  <p class="text-sm text-white/50">Solo marcas top: Gyeon, Koch Chemie, Rupes y más.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-pride-red/20 border border-pride-red/40 rounded-sm">
+                  <svg class="w-4 h-4 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-white">Garantía de Resultado</p>
+                  <p class="text-sm text-white/50">Si no quedás impresionado, volvemos a trabajar hasta que lo estés.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4: SERVICIOS
+         ============================================================ -->
+    <section id="servicios" class="relative py-24 sm:py-32 bg-pride-black">
+      <div class="absolute inset-0 bg-red-glow opacity-30 pointer-events-none"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Encabezado de sección -->
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-pride-red text-sm font-bold uppercase tracking-[0.25em]">Nuestros Servicios</span>
+          <h2 class="font-display text-5xl sm:text-6xl tracking-wide mt-2 italic">
+            ARSENAL <span class="text-pride-red">PREMIUM</span>
+          </h2>
+          <p class="mt-4 text-white/60 text-base sm:text-lg">
+            Cada servicio está diseñado para llevar tu vehículo al límite de lo posible.
+            Elegí el nivel de transformación que tu máquina necesita.
+          </p>
+        </div>
+
+        <!-- Grid de servicios -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+          <!-- Servicio 1 -->
+          <article class="glossy-card group border border-white/10 rounded-lg overflow-hidden hover:border-pride-red/50 transition-all duration-300 hover:shadow-red-glow-sm">
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80"
+                alt="Corrección de pintura automotriz"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-pride-black via-pride-black/40 to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-pride-red text-xs font-bold uppercase tracking-wider rounded-sm">Más Popular</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-2xl tracking-wide group-hover:text-pride-red transition-colors">Corrección de Pintura</h3>
+              <p class="mt-3 text-sm text-white/60 leading-relaxed">
+                Eliminamos swirl marks, micro-rayones y oxidación con pulido multi-etapa.
+                Devolvemos la profundidad y el brillo espejo que tu pintura perdió con el tiempo.
+              </p>
+              <p class="mt-4 font-display text-xl text-pride-red">Desde $45.000</p>
+            </div>
+          </article>
+
+          <!-- Servicio 2 -->
+          <article class="glossy-card group border border-white/10 rounded-lg overflow-hidden hover:border-pride-red/50 transition-all duration-300 hover:shadow-red-glow-sm">
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=80"
+                alt="Tratamiento cerámico en auto deportivo"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-pride-black via-pride-black/40 to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-2xl tracking-wide group-hover:text-pride-red transition-colors">Tratamiento Cerámico</h3>
+              <p class="mt-3 text-sm text-white/60 leading-relaxed">
+                Capa de protección de grado 9H que dura hasta 5 años. Repelente al agua,
+                anti-UV y anti-contaminantes. Tu pintura blindada contra el mundo.
+              </p>
+              <p class="mt-4 font-display text-xl text-pride-red">Desde $80.000</p>
+            </div>
+          </article>
+
+          <!-- Servicio 3 -->
+          <article class="glossy-card group border border-white/10 rounded-lg overflow-hidden hover:border-pride-red/50 transition-all duration-300 hover:shadow-red-glow-sm">
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=600&q=80"
+                alt="Limpieza de interiores detallada"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-pride-black via-pride-black/40 to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-2xl tracking-wide group-hover:text-pride-red transition-colors">Interior Detallado</h3>
+              <p class="mt-3 text-sm text-white/60 leading-relaxed">
+                Extracción profunda de cuero, alfombras y plásticos. Desinfección completa,
+                hidratación de tapizados y acabado mate premium en cada superficie.
+              </p>
+              <p class="mt-4 font-display text-xl text-pride-red">Desde $30.000</p>
+            </div>
+          </article>
+
+          <!-- Servicio 4 -->
+          <article class="glossy-card group border border-white/10 rounded-lg overflow-hidden hover:border-pride-red/50 transition-all duration-300 hover:shadow-red-glow-sm">
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80"
+                alt="Auto deportivo en taller de detailing"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-pride-black via-pride-black/40 to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-2xl tracking-wide group-hover:text-pride-red transition-colors">Full Detail Package</h3>
+              <p class="mt-3 text-sm text-white/60 leading-relaxed">
+                El combo definitivo: exterior + interior + motor + llantas. Transformación
+                completa de 2 a 3 días. Tu auto sale como recién salido de fábrica.
+              </p>
+              <p class="mt-4 font-display text-xl text-pride-red">Desde $120.000</p>
+            </div>
+          </article>
+
+          <!-- Servicio 5 -->
+          <article class="glossy-card group border border-white/10 rounded-lg overflow-hidden hover:border-pride-red/50 transition-all duration-300 hover:shadow-red-glow-sm">
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80"
+                alt="Protección de pintura PPF"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-pride-black via-pride-black/40 to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-2xl tracking-wide group-hover:text-pride-red transition-colors">PPF — Paint Protection</h3>
+              <p class="mt-3 text-sm text-white/60 leading-relaxed">
+                Film transparente de poliuretano que protege contra piedras, rayones y
+                desgaste diario. Invisible a simple vista, indestructible en la práctica.
+              </p>
+              <p class="mt-4 font-display text-xl text-pride-red">Consultar</p>
+            </div>
+          </article>
+
+          <!-- Servicio 6 -->
+          <article class="glossy-card group border border-white/10 rounded-lg overflow-hidden hover:border-pride-red/50 transition-all duration-300 hover:shadow-red-glow-sm">
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&q=80"
+                alt="Restauración de faros automotrices"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-pride-black via-pride-black/40 to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-2xl tracking-wide group-hover:text-pride-red transition-colors">Restauración de Faros</h3>
+              <p class="mt-3 text-sm text-white/60 leading-relaxed">
+                Pulido y sellado de ópticas opacas y amarillentas. Recuperamos la potencia
+                lumínica y el aspecto agresivo que tu frente merece mostrar.
+              </p>
+              <p class="mt-4 font-display text-xl text-pride-red">Desde $15.000</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- CTA secundario -->
+        <div class="mt-16 text-center">
+          <a href="#contacto" class="inline-flex items-center gap-2 text-pride-red font-bold uppercase tracking-widest text-sm hover:text-white transition-colors group">
+            <span>¿No sabés qué servicio necesitás? Consultanos</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5: TESTIMONIOS
+         ============================================================ -->
+    <section id="testimonios" class="relative py-24 sm:py-32 bg-section-gradient">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pride-red/30 to-transparent"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-pride-red text-sm font-bold uppercase tracking-[0.25em]">Testimonios</span>
+          <h2 class="font-display text-5xl sm:text-6xl tracking-wide mt-2 italic">
+            LO QUE DICE<br /><span class="text-pride-red">LA CALLE</span>
+          </h2>
+          <p class="mt-4 text-white/60">
+            Propietarios exigentes que confiaron en ThePride y no se arrepienten.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+
+          <!-- Testimonio 1 -->
+          <blockquote class="glossy-card border border-white/10 rounded-lg p-8 hover:border-pride-red/30 transition-all duration-300 flex flex-col">
+            <div class="flex gap-1 mb-4">
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-white/80 leading-relaxed flex-grow italic">
+              "Llevé mi BMW M4 con la pintura hecha un desastre por el sol y los lavaderos.
+              Cuando lo fui a buscar, casi no lo reconozco. El espejo del capó refleja las nubes.
+              Mis amigos del club no pueden creer que tenga 6 años. ThePride es otro nivel."
+            </p>
+            <footer class="mt-6 flex items-center gap-4 pt-6 border-t border-white/10">
+              <div class="w-12 h-12 rounded-full bg-pride-red/20 border border-pride-red/40 flex items-center justify-center font-display text-xl text-pride-red">MR</div>
+              <div>
+                <cite class="not-italic font-semibold text-white block">Martín Ríos</cite>
+                <span class="text-xs text-white/50 uppercase tracking-wider">BMW M4 Competition — 2019</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonio 2 -->
+          <blockquote class="glossy-card border border-white/10 rounded-lg p-8 hover:border-pride-red/30 transition-all duration-300 flex flex-col md:translate-y-4">
+            <div class="flex gap-1 mb-4">
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-white/80 leading-relaxed flex-grow italic">
+              "Mi Porsche 911 Carrera es mi bebé. Probé tres detailers antes y ninguno me convenció.
+              ThePride hizo cerámica + corrección completa. El agua resbala como si fuera Teflon.
+              La atención al detalle en el interior de cuero rojo es simplemente impecable."
+            </p>
+            <footer class="mt-6 flex items-center gap-4 pt-6 border-t border-white/10">
+              <div class="w-12 h-12 rounded-full bg-pride-red/20 border border-pride-red/40 flex items-center justify-center font-display text-xl text-pride-red">LF</div>
+              <div>
+                <cite class="not-italic font-semibold text-white block">Luciana Fernández</cite>
+                <span class="text-xs text-white/50 uppercase tracking-wider">Porsche 911 Carrera S — 2021</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonio 3 -->
+          <blockquote class="glossy-card border border-white/10 rounded-lg p-8 hover:border-pride-red/30 transition-all duration-300 flex flex-col">
+            <div class="flex gap-1 mb-4">
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5 text-pride-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-white/80 leading-relaxed flex-grow italic">
+              "Tengo un Dodge Challenger Hellcat negro mate que es imposible de mantener limpio.
+              ThePride no solo lo dejó impecable, sino que aplicaron un sellador específico para
+              pintura mate. Ahora dura semanas sin un grano de polvo visible. Puro fuego."
+            </p>
+            <footer class="mt-6 flex items-center gap-4 pt-6 border-t border-white/10">
+              <div class="w-12 h-12 rounded-full bg-pride-red/20 border border-pride-red/40 flex items-center justify-center font-display text-xl text-pride-red">DG</div>
+              <div>
+                <cite class="not-italic font-semibold text-white block">Diego Gutiérrez</cite>
+                <span class="text-xs text-white/50 uppercase tracking-wider">Dodge Challenger Hellcat — 2020</span>
+              </div>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6: FORMULARIO DE CONTACTO
+         ============================================================ -->
+    <section id="contacto" class="relative py-24 sm:py-32 bg-pride-black overflow-hidden">
+      <div class="absolute inset-0 bg-red-glow opacity-20 pointer-events-none"></div>
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+          <!-- Info de contacto -->
+          <div>
+            <span class="text-pride-red text-sm font-bold uppercase tracking-[0.25em]">Contacto</span>
+            <h2 class="red-line font-display text-5xl sm:text-6xl tracking-wide mt-2 italic">
+              RESERVÁ TU<br /><span class="text-pride-red">TURNO</span>
+            </h2>
+            <p class="mt-6 text-white/70 text-base sm:text-lg leading-relaxed">
+              Completá el formulario y te respondemos en menos de 24 horas con una cotización
+              personalizada. Contanos qué auto tenés y qué nivel de transformación buscás.
+            </p>
+
+            <div class="mt-10 space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 flex items-center justify-center bg-pride-red/10 border border-pride-red/30 rounded-sm">
+                  <svg class="w-5 h-5 text-pride-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-white/50">Ubicación</p>
+                  <p class="text-white font-medium">Av. del Libertador 4820, Vicente López, Buenos Aires</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 flex items-center justify-center bg-pride-red/10 border border-pride-red/30 rounded-sm">
+                  <svg class="w-5 h-5 text-pride-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-white/50">Teléfono / WhatsApp</p>
+                  <p class="text-white font-medium">+54 11 4567-8900</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 flex items-center justify-center bg-pride-red/10 border border-pride-red/30 rounded-sm">
+                  <svg class="w-5 h-5 text-pride-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-white/50">Email</p>
+                  <p class="text-white font-medium">info@thepride.com.ar</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 flex items-center justify-center bg-pride-red/10 border border-pride-red/30 rounded-sm">
+                  <svg class="w-5 h-5 text-pride-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-white/50">Horarios</p>
+                  <p class="text-white font-medium">Lun–Sáb: 9:00 – 19:00 hs</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario -->
+          <div class="glossy-card border border-white/10 rounded-lg p-8 sm:p-10">
+            <form id="contact-form" novalidate>
+              <div class="grid sm:grid-cols-2 gap-5">
+
+                <div>
+                  <label for="nombre" class="block text-xs font-bold uppercase tracking-wider text-white/60 mb-2">Nombre completo *</label>
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    required
+                    placeholder="Ej: Juan Pérez"
+                    class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm text-white placeholder-white/30 focus:outline-none focus:border-pride-red focus:ring-1 focus:ring-pride-red transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label for="telefono" class="block text-xs font-bold uppercase tracking-wider text-white/60 mb-2">Teléfono *</label>
+                  <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    required
+                    placeholder="Ej: 11 2345-6789"
+                    class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm text-white placeholder-white/30 focus:outline-none focus:border-pride-red focus:ring-1 focus:ring-pride-red transition-colors"
+                  />
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="email" class="block text-xs font-bold uppercase tracking-wider text-white/60 mb-2">Email *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="Ej: juan@email.com"
+                    class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm text-white placeholder-white/30 focus:outline-none focus:border-pride-red focus:ring-1 focus:ring-pride-red transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label for="vehiculo" class="block text-xs font-bold uppercase tracking-wider text-white/60 mb-2">Vehículo *</label>
+                  <input
+                    type="text"
+                    id="vehiculo"
+                    name="vehiculo"
+                    required
+                    placeholder="Ej: Audi RS6 2022"
+                    class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm text-white placeholder-white/30 focus:outline-none focus:border-pride-red focus:ring-1 focus:ring-pride-red transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label for="servicio" class="block text-xs font-bold uppercase tracking-wider text-white/60 mb-2">Servicio de interés *</label>
+                  <select
+                    id="servicio"
+                    name="servicio"
+                    required
+                    class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm text-white focus:outline-none focus:border-pride-red focus:ring-1 focus:ring-pride-red transition-colors appearance-none cursor-pointer"
+                  >
+                    <option value="" disabled selected class="bg-pride-dark">Seleccionar servicio</option>
+                    <option value="correccion" class="bg-pride-dark">Corrección de Pintura</option>
+                    <option value="ceramica" class="bg-pride-dark">Tratamiento Cerámico</option>
+                    <option value="interior" class="bg-pride-dark">Interior Detallado</option>
+                    <option value="full" class="bg-pride-dark">Full Detail Package</option>
+                    <option value="ppf" class="bg-pride-dark">PPF — Paint Protection</option>
+                    <option value="faros" class="bg-pride-dark">Restauración de Faros</option>
+                    <option value="otro" class="bg-pride-dark">Otro / No estoy seguro</option>
+                  </select>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="mensaje" class="block text-xs font-bold uppercase tracking-wider text-white/60 mb-2">Mensaje</label>
+                  <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    rows="4"
+                    placeholder="Contanos el estado actual de tu vehículo y qué resultado buscás..."
+                    class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-sm text-white placeholder-white/30 focus:outline-none focus:border-pride-red focus:ring-1 focus:ring-pride-red transition-colors resize-none"
+                  ></textarea>
+                </div>
+
+              </div>
+
+              <!-- Mensaje de éxito (oculto por defecto) -->
+              <div id="form-success" class="hidden mt-5 p-4 bg-green-900/30 border border-green-500/40 rounded-sm text-green-400 text-sm">
+                ¡Mensaje enviado! Te contactaremos en menos de 24 horas. Gracias por confiar en ThePride.
+              </div>
+
+              <button
+                type="submit"
+                class="mt-6 w-full py-4 bg-pride-red text-white font-bold uppercase tracking-widest text-sm rounded-sm hover:bg-pride-red-hover hover:shadow-red-glow transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <span>Solicitar Cotización</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       SECTION 7: FOOTER
+       ============================================================ -->
+  <footer class="bg-pride-dark border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Brand -->
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="#inicio" class="font-display text-3xl tracking-widest text-white">
+            THE<span class="text-pride-red">PRIDE</span>
+          </a>
+          <p class="mt-4 text-sm text-white/50 leading-relaxed max-w-xs">
+            Detailing automotriz de élite. Transformamos tu vehículo con pasión,
+            precisión y resultados que hablan por sí solos.
+          </p>
+        </div>
+
+        <!-- Links rápidos -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-4">Navegación</h4>
+          <ul class="space-y-2">
+            <li><a href="#inicio" class="text-sm text-white/60 hover:text-pride-red transition-colors">Inicio</a></li>
+            <li><a href="#nosotros" class="text-sm text-white/60 hover:text-pride-red transition-colors">Sobre Nosotros</a></li>
+            <li><a href="#servicios" class="text-sm text-white/60 hover:text-pride-red transition-colors">Servicios</a></li>
+            <li><a href="#testimonios" class="text-sm text-white/60 hover:text-pride-red transition-colors">Testimonios</a></li>
+            <li><a href="#contacto" class="text-sm text-white/60 hover:text-pride-red transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Servicios -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-4">Servicios</h4>
+          <ul class="space-y-2">
+            <li><a href="#servicios" class="text-sm text-white/60 hover:text-pride-red transition-colors">Corrección de Pintura</a></li>
+            <li><a href="#servicios" class="text-sm text-white/60 hover:text-pride-red transition-colors">Tratamiento Cerámico</a></li>
+            <li><a href="#servicios" class="text-sm text-white/60 hover:text-pride-red transition-colors">Interior Detallado</a></li>
+            <li><a href="#servicios" class="text-sm text-white/60 hover:text-pride-red transition-colors">Full Detail Package</a></li>
+          </ul>
+        </div>
+
+        <!-- Redes sociales -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-4">Seguinos</h4>
+          <div class="flex gap-3">
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 flex items-center justify-center border border-white/10 rounded-sm text-white/60 hover:border-pride-red hover:text-pride-red hover:bg-pride-red/10 transition-all duration-300">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 flex items-center justify-center border border-white/10 rounded-sm text-white/60 hover:border-pride-red hover:text-pride-red hover:bg-pride-red/10 transition-all duration-300">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="w-10 h-10 flex items-center justify-center border border-white/10 rounded-sm text-white/60 hover:border-pride-red hover:text-pride-red hover:bg-pride-red/10 transition-all duration-300">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="w-10 h-10 flex items-center justify-center border border-white/10 rounded-sm text-white/60 hover:border-pride-red hover:text-pride-red hover:bg-pride-red/10 transition-all duration-300">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-white/40">
+          &copy; 2026 ThePride Detailing Studio. Todos los derechos reservados.
+        </p>
+        <p class="text-xs text-white/30 italic">
+          Hecho con pasión por los motores.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT: Interacciones básicas
+       ============================================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      // --- Header scroll effect ---
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          header.classList.add('nav-scrolled');
+        } else {
+          header.classList.remove('nav-scrolled');
+        }
+      });
+
+      // --- Mobile menu toggle ---
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      let menuOpen = false;
+
+      function toggleMenu() {
+        menuOpen = !menuOpen;
+        mobileMenu.classList.toggle('open', menuOpen);
+        menuToggle.setAttribute('aria-expanded', menuOpen);
+
+        const bar1 = document.getElementById('bar1');
+        const bar2 = document.getElementById('bar2');
+        const bar3 = document.getElementById('bar3');
+
+        if (menuOpen) {
+          bar1.style.transform = 'rotate(45deg) translate(4px, 4px)';
+          bar2.style.opacity = '0';
+          bar3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+        } else {
+          bar1.style.transform = '';
+          bar2.style.opacity = '';
+          bar3.style.transform = '';
+        }
+      }
+
+      menuToggle.addEventListener('click', toggleMenu);
+
+      mobileLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (menuOpen) toggleMenu();
+        });
+      });
+
+      // --- Contact form (front-end only) ---
+      const form = document.getElementById('contact-form');
+      const formSuccess = document.getElementById('form-success');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const required = form.querySelectorAll('[required]');
+        let valid = true;
+
+        required.forEach(function (field) {
+          if (!field.value.trim()) {
+            valid = false;
+            field.classList.add('border-red-500');
+          } else {
+            field.classList.remove('border-red-500');
+          }
+        });
+
+        if (!valid) return;
+
+        formSuccess.classList.remove('hidden');
+        form.reset();
+
+        setTimeout(function () {
+          formSuccess.classList.add('hidden');
+        }, 6000);
+      });
+
+      // --- Smooth active link highlight on scroll ---
+      const sections = document.querySelectorAll('section[id]');
+      window.addEventListener('scroll', function () {
+        const scrollPos = window.scrollY + 100;
+        sections.forEach(function (section) {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          const id = section.getAttribute('id');
+          if (scrollPos >= top && scrollPos < top + height) {
+            document.querySelectorAll('nav a[href="#' + id + '"]').forEach(function (link) {
+              link.classList.add('text-pride-red');
+              link.classList.remove('text-white/80');
+            });
+          }
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>

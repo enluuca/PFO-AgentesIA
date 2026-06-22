@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThePride | Detailing Premium</title>
+  <meta name="description" content="ThePride transforma vehículos con detailing premium, corrección de pintura, tratamiento cerámico y limpieza interior extrema." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            prideBlack: "#0b0b0b",
+            prideGray: "#171717",
+            prideRed: "#e50914",
+            prideWhite: "#f5f5f5"
+          },
+          boxShadow: {
+            redGlow: "0 0 30px rgba(229, 9, 20, 0.45)"
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background: #0b0b0b;
+      color: #f5f5f5;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .noise {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+
+    .red-line {
+      background: linear-gradient(90deg, transparent, #e50914, transparent);
+    }
+
+    .glass {
+      background: rgba(15, 15, 15, 0.72);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-bg {
+      background-image:
+        linear-gradient(90deg, rgba(11,11,11,0.95) 0%, rgba(11,11,11,0.72) 42%, rgba(11,11,11,0.28) 100%),
+        linear-gradient(180deg, rgba(11,11,11,0.10) 0%, #0b0b0b 100%),
+        url("https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=2200&q=85");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .workshop-bg {
+      background-image:
+        linear-gradient(rgba(11,11,11,0.86), rgba(11,11,11,0.92)),
+        url("https://images.unsplash.com/photo-1632823469850-1b7b1e8b7e1e?auto=format&fit=crop&w=2000&q=85");
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden">
+  <!-- Header -->
+  <header class="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-prideBlack/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+      <a href="#inicio" class="group flex items-center gap-3">
+        <span class="h-3 w-3 rounded-full bg-prideRed shadow-redGlow"></span>
+        <span class="text-2xl font-black italic tracking-wide text-white">
+          The<span class="text-prideRed">Pride</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm font-bold uppercase tracking-[0.18em] text-white/70 md:flex">
+        <a href="#nosotros" class="transition hover:text-prideRed">Nosotros</a>
+        <a href="#servicios" class="transition hover:text-prideRed">Servicios</a>
+        <a href="#reviews" class="transition hover:text-prideRed">Reviews</a>
+        <a href="#contacto" class="transition hover:text-prideRed">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="hidden rounded-sm bg-prideRed px-5 py-3 text-sm font-black uppercase tracking-wide text-white shadow-redGlow transition hover:bg-white hover:text-prideBlack md:inline-flex">
+        Cotizar ahora
+      </a>
+
+      <button id="menuBtn" class="md:hidden" aria-label="Abrir menú">
+        <span class="block h-0.5 w-7 bg-white"></span>
+        <span class="mt-2 block h-0.5 w-7 bg-prideRed"></span>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden border-t border-white/10 bg-prideBlack px-5 py-5 md:hidden">
+      <nav class="flex flex-col gap-4 text-sm font-bold uppercase tracking-[0.18em] text-white/80">
+        <a href="#nosotros" class="mobile-link">Nosotros</a>
+        <a href="#servicios" class="mobile-link">Servicios</a>
+        <a href="#reviews" class="mobile-link">Reviews</a>
+        <a href="#contacto" class="mobile-link text-prideRed">Cotizar ahora</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg noise relative flex min-h-screen items-center pt-24">
+      <div class="absolute bottom-0 left-0 h-28 w-full bg-gradient-to-t from-prideBlack to-transparent"></div>
+
+      <div class="relative mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+        <div class="max-w-3xl">
+          <div class="mb-6 inline-flex items-center gap-3 border-l-4 border-prideRed bg-white/5 px-4 py-2 text-xs font-black uppercase tracking-[0.28em] text-white/80">
+            Detailing premium de alto impacto
+          </div>
+
+          <h1 class="text-5xl font-black italic leading-[0.92] tracking-tight text-white sm:text-7xl lg:text-8xl">
+            Tu auto no se lava.
+            <span class="block text-prideRed">Renace 0KM.</span>
+          </h1>
+
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-white/72 sm:text-xl">
+            En ThePride llevamos cada superficie al límite: pintura profunda, brillo brutal, interiores impecables y protección real para que tu máquina vuelva a sentirse como el primer día.
+          </p>
+
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a href="#contacto" class="inline-flex items-center justify-center rounded-sm bg-prideRed px-8 py-4 text-base font-black uppercase tracking-wide text-white shadow-redGlow transition hover:scale-[1.02] hover:bg-white hover:text-prideBlack">
+              Quiero mi cotización
+            </a>
+            <a href="#servicios" class="inline-flex items-center justify-center rounded-sm border border-white/20 px-8 py-4 text-base font-black uppercase tracking-wide text-white transition hover:border-prideRed hover:text-prideRed">
+              Ver servicios
+            </a>
+          </div>
+        </div>
+
+        <div class="hidden items-end justify-end lg:flex">
+          <div class="glass max-w-sm p-6">
+            <p class="text-sm font-bold uppercase tracking-[0.24em] text-prideRed">Resultado ThePride</p>
+            <p class="mt-3 text-3xl font-black italic text-white">Brillo profundo. Protección extrema. Presencia callejera.</p>
+            <div class="mt-6 h-1 w-full red-line"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="nosotros" class="relative bg-prideBlack py-24">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-2 lg:px-8">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.28em] text-prideRed">Sobre nosotros</p>
+          <h2 class="mt-4 text-4xl font-black italic leading-tight text-white sm:text-5xl">
+            Obsesión por el detalle. Respeto por la máquina.
+          </h2>
+        </div>
+
+        <div class="text-lg leading-8 text-white/70">
+          <p>
+            ThePride nació de una idea simple: ningún auto especial debería verse común. Somos fanáticos de la pintura perfecta, del reflejo limpio, del cuero cuidado y de esa sensación adictiva de abrir la puerta y encontrar todo impecable.
+          </p>
+          <p class="mt-6">
+            Trabajamos con procesos precisos, productos premium y una mirada quirúrgica sobre cada línea del vehículo. No buscamos “que quede mejor”. Buscamos que se vea feroz, elegante y listo para robar miradas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="workshop-bg py-24">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="text-sm font-black uppercase tracking-[0.28em] text-prideRed">Servicios premium</p>
+          <h2 class="mt-4 text-4xl font-black italic leading-tight text-white sm:text-5xl">
+            Tratamientos diseñados para autos que exigen respeto.
+          </h2>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-3">
+          <article class="group overflow-hidden rounded-sm border border-white/10 bg-prideBlack/80">
+            <img class="h-64 w-full object-cover opacity-80 transition group-hover:scale-105 group-hover:opacity-100" src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1200&q=85" alt="Auto deportivo con pintura brillante" />
+            <div class="p-6">
+              <h3 class="text-2xl font-black italic text-white">Corrección de Pintura</h3>
+              <p class="mt-4 text-white/65">
+                Eliminamos marcas, hologramas y micro rayas para devolver profundidad, claridad y reflejo espejo a la pintura.
+              </p>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-sm border border-white/10 bg-prideBlack/80">
+            <img class="h-64 w-full object-cover opacity-80 transition group-hover:scale-105 group-hover:opacity-100" src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1200&q=85" alt="Detalle de auto de lujo" />
+            <div class="p-6">
+              <h3 class="text-2xl font-black italic text-white">Tratamiento Cerámico</h3>
+              <p class="mt-4 text-white/65">
+                Protección hidrofóbica, brillo intenso y defensa contra contaminación, rayos UV y desgaste diario.
+              </p>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-sm border border-white/10 bg-prideBlack/80">
+            <img class="h-64 w-full object-cover opacity-80 transition group-hover:scale-105 group-hover:opacity-100" src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=85" alt="Interior premium de vehículo" />
+            <div class="p-6">
+              <h3 class="text-2xl font-black italic text-white">Interior Detallado</h3>
+              <p class="mt-4 text-white/65">
+                Limpieza profunda de tapizados, plásticos, cuero, alfombras y rincones invisibles. Cabina limpia, sobria y premium.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials / Reviews -->
+    <section id="reviews" class="bg-prideBlack py-24">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div>
+            <p class="text-sm font-black uppercase tracking-[0.28em] text-prideRed">Reviews</p>
+            <h2 class="mt-4 text-4xl font-black italic text-white sm:text-5xl">Clientes que volvieron a enamorarse.</h2>
+          </div>
+          <div class="h-1 w-48 red-line"></div>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-3">
+          <article class="glass p-7">
+            <div class="text-prideRed">★★★★★</div>
+            <p class="mt-5 text-lg leading-8 text-white/78">
+              “Llevé mi Mustang con la pintura llena de marcas. Cuando lo retiré parecía recién salido de agencia. El rojo quedó con una profundidad ridícula.”
+            </p>
+            <p class="mt-6 font-black uppercase tracking-wide text-white">Nicolás R.</p>
+            <p class="text-sm text-white/45">Ford Mustang GT</p>
+          </article>
+
+          <article class="glass p-7">
+            <div class="text-prideRed">★★★★★</div>
+            <p class="mt-5 text-lg leading-8 text-white/78">
+              “Soy obsesivo con mi auto y acá entendieron exactamente lo que buscaba. El cerámico cambió por completo el brillo y el mantenimiento.”
+            </p>
+            <p class="mt-6 font-black uppercase tracking-wide text-white">Martín V.</p>
+            <p class="text-sm text-white/45">BMW M240i</p>
+          </article>
+
+          <article class="glass p-7">
+            <div class="text-prideRed">★★★★★</div>
+            <p class="mt-5 text-lg leading-8 text-white/78">
+              “El interior quedó impecable, sin olores raros ni brillos grasosos. Se nota que trabajan con criterio y pasión por los autos.”
+            </p>
+            <p class="mt-6 font-black uppercase tracking-wide text-white">Sofía L.</p>
+            <p class="text-sm text-white/45">Audi S3</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contacto" class="relative overflow-hidden bg-prideGray py-24">
+      <div class="absolute -right-32 top-16 h-64 w-64 rounded-full bg-prideRed/20 blur-3xl"></div>
+
+      <div class="relative mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.28em] text-prideRed">Cotización</p>
+          <h2 class="mt-4 text-4xl font-black italic leading-tight text-white sm:text-5xl">
+            Contanos qué manejás. Nosotros hacemos el resto.
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-white/68">
+            Completá el formulario y te contactamos para recomendarte el tratamiento ideal según el estado, uso y objetivo de tu vehículo.
+          </p>
+        </div>
+
+        <form id="quoteForm" class="glass grid gap-5 p-6 sm:p-8">
+          <div class="grid gap-5 sm:grid-cols-2">
+            <label class="block">
+              <span class="text-sm font-bold uppercase tracking-wide text-white/70">Nombre</span>
+              <input required type="text" class="mt-2 w-full rounded-sm border border-white/10 bg-black/50 px-4 py-4 text-white outline-none transition focus:border-prideRed" placeholder="Tu nombre" />
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-bold uppercase tracking-wide text-white/70">Teléfono</span>
+              <input required type="tel" class="mt-2 w-full rounded-sm border border-white/10 bg-black/50 px-4 py-4 text-white outline-none transition focus:border-prideRed" placeholder="+54 9..." />
+            </label>
+          </div>
+
+          <label class="block">
+            <span class="text-sm font-bold uppercase tracking-wide text-white/70">Email</span>
+            <input required type="email" class="mt-2 w-full rounded-sm border border-white/10 bg-black/50 px-4 py-4 text-white outline-none transition focus:border-prideRed" placeholder="tu@email.com" />
+          </label>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <label class="block">
+              <span class="text-sm font-bold uppercase tracking-wide text-white/70">Vehículo</span>
+              <input required type="text" class="mt-2 w-full rounded-sm border border-white/10 bg-black/50 px-4 py-4 text-white outline-none transition focus:border-prideRed" placeholder="Marca, modelo y año" />
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-bold uppercase tracking-wide text-white/70">Servicio</span>
+              <select required class="mt-2 w-full rounded-sm border border-white/10 bg-black/50 px-4 py-4 text-white outline-none transition focus:border-prideRed">
+                <option value="">Seleccionar</option>
+                <option>Corrección de Pintura</option>
+                <option>Tratamiento Cerámico</option>
+                <option>Interior Detallado</option>
+                <option>Pack Completo ThePride</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="block">
+            <span class="text-sm font-bold uppercase tracking-wide text-white/70">Mensaje</span>
+            <textarea rows="5" class="mt-2 w-full resize-none rounded-sm border border-white/10 bg-black/50 px-4 py-4 text-white outline-none transition focus:border-prideRed" placeholder="Contanos el estado del auto y qué resultado buscás."></textarea>
+          </label>
+
+          <button type="submit" class="rounded-sm bg-prideRed px-8 py-4 text-base font-black uppercase tracking-wide text-white shadow-redGlow transition hover:bg-white hover:text-prideBlack">
+            Enviar solicitud
+          </button>
+
+          <p id="formMessage" class="hidden border-l-4 border-prideRed bg-prideRed/10 px-4 py-3 text-sm font-bold text-white">
+            Solicitud enviada. Te contactaremos para coordinar el próximo nivel de brillo.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-prideBlack py-10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-8 px-5 md:flex-row md:items-center md:justify-between lg:px-8">
+      <div>
+        <a href="#inicio" class="text-2xl font-black italic text-white">The<span class="text-prideRed">Pride</span></a>
+        <p class="mt-2 text-sm text-white/50">Detailing premium para autos con carácter.</p>
+      </div>
+
+      <nav class="flex flex-wrap gap-5 text-sm font-bold uppercase tracking-wide text-white/60">
+        <a href="#nosotros" class="hover:text-prideRed">Nosotros</a>
+        <a href="#servicios" class="hover:text-prideRed">Servicios</a>
+        <a href="#reviews" class="hover:text-prideRed">Reviews</a>
+        <a href="#contacto" class="hover:text-prideRed">Contacto</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#" aria-label="Instagram" class="grid h-10 w-10 place-items-center rounded-sm border border-white/10 text-white transition hover:border-prideRed hover:bg-prideRed">
+          <span class="text-sm font-black">IG</span>
+        </a>
+        <a href="#" aria-label="TikTok" class="grid h-10 w-10 place-items-center rounded-sm border border-white/10 text-white transition hover:border-prideRed hover:bg-prideRed">
+          <span class="text-sm font-black">TT</span>
+        </a>
+        <a href="#" aria-label="WhatsApp" class="grid h-10 w-10 place-items-center rounded-sm border border-white/10 text-white transition hover:border-prideRed hover:bg-prideRed">
+          <span class="text-sm font-black">WA</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mx-auto mt-8 max-w-7xl px-5 text-sm text-white/40 lg:px-8">
+      © 2026 ThePride. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+    const quoteForm = document.getElementById("quoteForm");
+    const formMessage = document.getElementById("formMessage");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    quoteForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      formMessage.classList.remove("hidden");
+      quoteForm.reset();
+    });
+  </script>
+</body>
+</html>

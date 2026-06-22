@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFO2 - Enzo Giangreco</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+        }
+        .font-racing {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        /* Animación del reflejo metálico (Shine) */
+        @keyframes shine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-shine {
+            background-size: 200% auto;
+            animation: shine 6s linear infinite;
+        }
+
+        /* Efecto de resplandor de neón en hover */
+        .neon-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .neon-card:hover {
+            transform: translateY(-5px);
+            border-color: #e50914;
+            box-shadow: 0 0 25px rgba(229, 9, 20, 0.45), inset 0 0 10px rgba(229, 9, 20, 0.1);
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex flex-col justify-between bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900/60 via-black to-black">
+
+    <header class="border-b border-zinc-900 bg-black/40 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="font-racing text-2xl font-black tracking-wider text-white select-none">
+                IFTS <span class="text-red-600 drop-shadow-[0_0_8px_rgba(229,9,20,0.6)]">N.°29</span>
+            </div>
+            <div class="text-xs tracking-widest text-zinc-500 font-bold uppercase font-racing bg-zinc-900/50 px-3 py-1.5 rounded border border-zinc-800/60">
+                Trabajo Práctico Individual
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-16 flex-grow flex flex-col justify-center items-center text-center w-full">
+        <span class="px-4 py-1.5 rounded-full text-xs font-bold tracking-widest bg-red-600/10 text-red-500 border border-red-600/20 mb-8 uppercase font-racing animate-pulse shadow-[0_0_15px_rgba(229,9,20,0.1)]">
+            Práctica Formativa Obligatoria 2
+        </span>
+
+        <h1 class="font-racing text-4xl md:text-6xl font-black tracking-tight mb-3 uppercase leading-tight select-none">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-400 to-white animate-shine">Prompt Engineering</span> <br class="hidden md:inline">en <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-400 to-red-600 animate-shine drop-shadow-[0_0_12px_rgba(229,9,20,0.2)]">Agentes de IA</span>
+        </h1>
+        
+        <h2 class="text-zinc-400 text-lg md:text-xl font-medium tracking-wide mb-16">
+            Alumno: <span class="text-white font-bold transition-colors duration-300 hover:text-red-500">Enzo Giangreco</span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
+            
+            <a href="prompt.html" target="_blank" class="neon-card flex flex-col justify-between p-6 rounded-xl bg-zinc-950/80 border border-zinc-900 hover:border-red-600 group text-left backdrop-blur-sm">
+                <div>
+                    <div class="w-11 h-11 rounded-lg bg-zinc-900 flex items-center justify-center text-zinc-400 group-hover:text-red-500 group-hover:bg-red-950/20 transition-all duration-300 mb-5 border border-zinc-800">
+                        📄
+                    </div>
+                    <h3 class="font-racing text-lg font-bold uppercase tracking-wide text-white group-hover:text-red-500 transition-colors mb-2">
+                        Prompt Usado
+                    </h3>
+                    <p class="text-xs text-zinc-500 leading-relaxed">
+                        Texto plano con la instrucción maestra de alta precisión provista a las inteligencias artificiales.
+                    </p>
+                </div>
+                <span class="text-xs font-bold text-red-500 mt-6 inline-flex items-center group-hover:translate-x-1.5 transition-transform duration-300">
+                    Ver prompt de texto <span class="ml-1">&rarr;</span>
+                </span>
+            </a>
+
+            <a href="/agente-cursor/index1.html" class="neon-card flex flex-col justify-between p-6 rounded-xl bg-zinc-950/80 border border-zinc-900 hover:border-red-600 group text-left backdrop-blur-sm">
+                <div>
+                    <div class="w-11 h-11 rounded-lg bg-zinc-900 flex items-center justify-center text-zinc-400 group-hover:text-red-500 group-hover:bg-red-950/20 transition-all duration-300 mb-5 border border-zinc-800">
+                        🚀
+                    </div>
+                    <h3 class="font-racing text-lg font-bold uppercase tracking-wide text-white group-hover:text-red-500 transition-colors mb-2">
+                        Agente 1: Cursor
+                    </h3>
+                    <p class="text-xs text-zinc-500 leading-relaxed">
+                        Landing Page de estética vehicular premium generada autónomamente con el entorno integrado de Cursor.
+                    </p>
+                </div>
+                <span class="text-xs font-bold text-red-500 mt-6 inline-flex items-center group-hover:translate-x-1.5 transition-transform duration-300">
+                    Visitar Landing <span class="ml-1">&rarr;</span>
+                </span>
+            </a>
+
+            <a href="/agente-codex/index2.html" class="neon-card flex flex-col justify-between p-6 rounded-xl bg-zinc-950/80 border border-zinc-900 hover:border-red-600 group text-left backdrop-blur-sm">
+                <div>
+                    <div class="w-11 h-11 rounded-lg bg-zinc-900 flex items-center justify-center text-zinc-400 group-hover:text-red-500 group-hover:bg-red-950/20 transition-all duration-300 mb-5 border border-zinc-800">
+                        🔥
+                    </div>
+                    <h3 class="font-racing text-lg font-bold uppercase tracking-wide text-white group-hover:text-red-500 transition-colors mb-2">
+                        Agente 2: Codex
+                    </h3>
+                    <p class="text-xs text-zinc-500 leading-relaxed">
+                        Landing Page de estética vehicular premium generada autónomamente mediante OpenAI Codex.
+                    </p>
+                </div>
+                <span class="text-xs font-bold text-red-500 mt-6 inline-flex items-center group-hover:translate-x-1.5 transition-transform duration-300">
+                    Visitar Landing <span class="ml-1">&rarr;</span>
+                </span>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="border-t border-zinc-950 bg-black/60 py-6 text-center text-xs text-zinc-600 tracking-wider font-semibold uppercase select-none">
+        &copy; 2026 ENZO GIANGRECO &bull; IFTS N.°29 &bull; TODOS LOS DERECHOS RESERVADOS
+    </footer>
+
+</body>
+</html>
