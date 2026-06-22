@@ -46,18 +46,18 @@ Generate the complete, unbroken, production-ready `index.html` code. Ensure the 
 
 Resultados y Capturas de Pantalla
 1. Agente 1: Cursor
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
-![alt text](image-4.png)
-![alt text](image-5.png)
+![alt text](agente-cursor/image.png)
+![alt text](agente-cursor/image-1.png)
+![alt text](agente-cursor/image-2.png)
+![alt text](agente-cursor/image-3.png)
+![alt text](agente-cursor/image-4.png)
+![alt text](agente-cursor/image-5.png)
 2. Agente 2: OpenAI Codex
-![alt text](image-6.png)
-![alt text](image-7.png)
-![alt text](image-8.png)
-![alt text](image-9.png)
-![alt text](image-10.png)
+![alt text](agente-codex/image-6.png)
+![alt text](agente-codex/image-7.png)
+![alt text](agente-codex/image-8.png)
+![alt text](agente-codex/image-9.png)
+![alt text](agente-codex/image-10.png)
 
 ## Conclusiones Técnicas y Comparativa
 
